@@ -5,7 +5,7 @@
 // @version     latest
 // @date 	2013-01-15
 // @creator vit@v1t.su
-// @icon http://mr-vit.github.io/SteamWebTools/icon-64.png
+// @icon http://passball.github.io/swt/icon-64.png
 // @include	http://store.steampowered.com/*
 // @include	https://store.steampowered.com/*
 // @include	http://steamcommunity.com/*
@@ -15,5 +15,5 @@
 
 var script = document.createElement('script');
 script.type = 'text/javascript';
-script.src = '//mr-vit.github.io/SteamWebTools/steamwebtools.base.js';
+script.src = '//passball.github.io/swt/steamwebtools.base.js';
 document.body.appendChild(script);
