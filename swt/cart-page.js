@@ -43,7 +43,7 @@ function createBlock(title, links){
 </div>'+link.text+'</a>'
 	}
 
-	out+='Add SubID\'to your Cart: <form id="addtocartsubids" method="post"><input type="hidden" name="action" value="add_to_cart"><input type="text" name="subids" placeholder="1, 2, 3"/><input type="submit" value="Добавить"></form></div></div></div>';
+	out+='Add SubID\'to your Cart: <form id="addtocartsubids" method="post"><input type="hidden" name="action" value="add_to_cart"><input type="text" name="subids" placeholder="1, 2, 3"/><input type="submit" value="Add"></form></div></div></div>';
 
 	return out;
 }
