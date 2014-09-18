@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name 	Steam Web Tools
+// @name 	Steam Web Tools En
 // @namespace 	http://v1t.su/projects/steam/webtools/
 // @description Useful tools in Steam web sites
 // @version     latest

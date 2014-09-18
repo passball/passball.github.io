@@ -25,10 +25,10 @@ function init() {
 			str+='<p>'+gifts[x]+' <span id="giftN'+i+'"></span></p>';
 			i++;
 		}
-		el.innerHTML='<p><b>Гифты для отправки: '+gids.length+'</b></p>'+str+'';
+		el.innerHTML='<p><b>Send gift to: '+gids.length+'</b></p>'+str+'';
 
 		window.$('email_input').insertAdjacentHTML("afterEnd",
-			'<br/><br/>Если хотите отправить гифты на разыне Email введите их ниже по одному на строку. Гифты будут отправленны по порядку. Если гифтов больше чем адресов, оставшиеся гифты будут отправлены на последний адрес<br/><textarea id="emails" rows=3></textarea>'
+			'<br/><br/>If you want to send gifts to different user, please enter their Email address below (one address per line). Gift will be sent in order. If the quantity of gift is more than address, the remaining gifts will be sent to the last address.<br/><textarea id="emails" rows=3></textarea>'
 		);
 
 		var curGift = 0, emails=[];

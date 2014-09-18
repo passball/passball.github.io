@@ -12,8 +12,8 @@ function init() {
 	var el = document.querySelector('#main_content > .rightcol');
 
 	links = [
-		{href:'javascript:document.cookie=\'shoppingCartGID=0; path=/\';location.href=\'/cart/\';', text:'Очистить Корзину'},
-		{href:'https://store.steampowered.com/checkout/?purchasetype=gift#fastbuy',blank:1, text:'Быстро купить в инвентарь со Steam Wallet'},
+		{href:'javascript:document.cookie=\'shoppingCartGID=0; path=/\';location.href=\'/cart/\';', text:'Empty Cart'},
+		{href:'https://store.steampowered.com/checkout/?purchasetype=gift#fastbuy',blank:1, text:'Quickly checkout as Gift with Steam Wallet'},
 	];
 
 	el.insertAdjacentHTML('afterBegin', createBlock('Steam Web Tools', links));
@@ -43,7 +43,7 @@ function createBlock(title, links){
 </div>'+link.text+'</a>'
 	}
 
-	out+='Добавить SubID\'ы в корзину: <form id="addtocartsubids" method="post"><input type="hidden" name="action" value="add_to_cart"><input type="text" name="subids" placeholder="1, 2, 3"/><input type="submit" value="Добавить"></form></div></div></div>';
+	out+='Add SubID\'to your Cart: <form id="addtocartsubids" method="post"><input type="hidden" name="action" value="add_to_cart"><input type="text" name="subids" placeholder="1, 2, 3"/><input type="submit" value="Добавить"></form></div></div></div>';
 
 	return out;
 }

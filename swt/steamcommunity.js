@@ -32,7 +32,7 @@ function gamecardsPageInit(){
 }
 
 function badgesPageInit(){
-	$('.badge_details_set_favorite').append('<div class="btn_grey_black btn_small_thin" onclick="showWithDrop()"><span>Показать с невыпавшими картами</span></div>');
+	$('.badge_details_set_favorite').append('<div class="btn_grey_black btn_small_thin" onclick="showWithDrop()"><span>Display games with card drop remaining</span></div>');
 	window.showWithDrop=function(){
 		$('.badge_row').filter(function(i,el){
 			return !($('a.btn_green_white_innerfade',el).length)
@@ -53,23 +53,23 @@ function SetRepBadges(selector){
 
 	var badges = {
 		0:{
-			text : 'неизвестен',
+			text : 'Unknown',
 			color : '606060'
 		},
 		1:{
-			text : 'гарант',
+			text : 'Verified',
 			color : '5E931B'
 		},
 		2:{
-			text : 'в белом списке',
+			text : 'Whitelisted',
 			color : '247E9E'
 		},
 		3:{
-			text : 'в черном списке',
+			text : 'Blacklisted',
 			color : '9E2424'
 		},
 		4:{
-			text : 'подозрительный',
+			text : 'Suspicious',
 			color : 'B47200'
 		},
 		error:{
@@ -148,7 +148,7 @@ function inventoryPageInit(){
 				});
 				return;
 			} else
-				str += 'не известно';
+				str += 'Unknown';
 		} else {
 			str += '<a href="http://steamdb.info/sub/'+subid+'">'+subid+'</a>';
 			if(f) {
@@ -183,7 +183,7 @@ function inventoryPageInit(){
 		} else {
 			var amount = 1;
 			if(item._amount>1) {
-				amount =  parseInt(prompt('Сколько выбрать? из '+item._amount, item._amount)) || 1;
+				amount =  parseInt(prompt('How to choose? of '+item._amount, item._amount)) || 1;
 				if (amount>item._amount)
 					amount=item._amount;
 			}
@@ -243,7 +243,7 @@ function inventoryPageInit(){
 					item.descriptions = [];
 
 				item.descriptions.push({value:'ClassID = '+item.classid});
-				item.descriptions.push({value:'<a href="#" onclick="getSubid(event.target,\''+item.id+'\');return false">Получить SubscriptionID</a>'});
+				item.descriptions.push({value:'<a href="#" onclick="getSubid(event.target,\''+item.id+'\');return false">Get SubscriptionID</a>'});
 
 				if(!ajaxTarget.descriptions[item.classid])
 					ajaxTarget.descriptions[item.classid] = item.descriptions;
@@ -252,15 +252,15 @@ function inventoryPageInit(){
 				if(item.owner_actions) {
 					item.owner_actions.push({
 						link:'javascript:checkForSend("%assetid%")',
-						name:'Выбрать для отправки'
+						name:'Select to send'
 					});
 					item.owner_actions.push({
 						link:'javascript:sendChecked()',
-						name:'Отправить выбранные'
+						name:'Send selected'
 					});
 					item.owner_actions.push({
 						link:'javascript:loadGiftNote()',
-						name:'Посмотреть заметку'
+						name:'View notes'
 					});
 				}
 			}
@@ -292,7 +292,7 @@ function inventoryPageInit(){
 				return res;
 			}
 			var market_hash_name = item.market_hash_name ? item.market_hash_name : item.market_name;
-			elActions.appendChild(window.CreateMarketActionButton('blue', 'http://steamcommunity.com/market/listings/'+item.appid+'/'+market_hash_name, 'Мин цена на маркете: <span id="swt_lowestItemPrice_'+item.classid+'">?</span>'));
+			elActions.appendChild(window.CreateMarketActionButton('blue', 'http://steamcommunity.com/market/listings/'+item.appid+'/'+market_hash_name, 'Lowest price on the Market: <span id="swt_lowestItemPrice_'+item.classid+'">?</span>'));
 			$(elActions).css('display', 'block');
 			$.ajax( {
 				url: 'http://steamcommunity.com/market/priceoverview/',
@@ -385,7 +385,7 @@ function inventoryPageInit(){
 	}
 
 
-	var HTMLHideDup = '<input type="checkbox" name="hidedup" onchange="window.onchangehidedup(event)" '+((window.localStorage.hideDupItems)?'checked="true"':'')+'/>Прятать дубликаты, показывая кол-во';
+	var HTMLHideDup = '<input type="checkbox" name="hidedup" onchange="window.onchangehidedup(event)" '+((window.localStorage.hideDupItems)?'checked="true"':'')+'/>Hide duplicates, showing the number of';
 	document.getElementById('inventory_pagecontrols').insertAdjacentHTML("beforeBegin", HTMLHideDup);
 
 	window.onchangehidedup = function(e){
@@ -411,7 +411,7 @@ function inventoryPageInit(){
 			window.$('market_sell_dialog_ok').stopObserving();
 			$('#market_sell_dialog_ok').unbind();
 			if(count>1) {
-				var amount =  parseInt(prompt('Сколько продавать? из '+count, count)) || 1;
+				var amount =  parseInt(prompt('How to Sell? of '+count, count)) || 1;
 				if (amount>count)
 					amount=count;
 
@@ -443,7 +443,7 @@ function inventoryPageInit(){
 							crossDomain: true,
 							xhrFields: { withCredentials: true }
 						} ).done( function ( data ) {
-							$('#market_sell_dialog_item_availability_hint>.market_dialog_topwarning').text('Выставлен №'+window.SellItemDialog._itemNum);
+							$('#market_sell_dialog_item_availability_hint>.market_dialog_topwarning').text('List №'+window.SellItemDialog._itemNum);
 							if(window.SellItemDialog._itemNum>=window.SellItemDialog._amount)
 								window.SellItemDialog.OnSuccess( { responseJSON: data } );
 							else {
@@ -482,61 +482,61 @@ function profileNewPageInit(){
 		{
 			href: 'http://forums.steamrep.com/search/search?keywords='+steamid,
 			icon: 'http://steamrep.com/favicon.ico',
-			text: 'Искать на форумах SteamRep.com',
+			text: 'Serch the forums on SteamRep.com',
 		},
 		{
 			href: 'http://forums.sourceop.com/search.php?do=process&query='+steamid,
 			icon: 'http://forums.sourceop.com/favicon.ico',
-			text: 'Искать на форумах SourceOP.com',
+			text: 'Serch the forums on SourceOP.com',
 		},
 		{
 			href: 'http://www.steamtrades.com/user/id/'+steamid,
 			icon: 'http://www.steamtrades.com/favicon.ico',
-			text: 'Отзывы на SteamTrades.com',
+			text: 'Reviews on SteamTrades.com',
 		},
 		{hr:true},
 		{
 			href: 'http://backpack.tf/profiles/'+steamid,
 			icon: 'http://backpack.tf/favicon_440.ico',
-			text: 'Инвентарь Backpack.tf',
+			text: 'Inventory on Backpack.tf',
 		},
 		{
 			href: 'http://tf2b.com/tf2/'+steamid,
 			icon: 'http://tf2b.com/favicon.ico',
-			text: 'Инвентарь TF2B.com',
+			text: 'Inventory on TF2B.com',
 		},
 		{
 			href: 'http://tf2outpost.com/backpack/'+steamid,
 			icon: 'http://cdn.tf2outpost.com/img/favicon_440.ico',
-			text: 'Инвентарь TF2OutPost.com',
+			text: 'Inventory on TF2OutPost.com',
 		},
 		{hr:true},
 		{
 			href: 'http://tf2outpost.com/user/'+steamid,
 			icon: 'http://cdn.tf2outpost.com/img/favicon_440.ico',
-			text: 'Трэйды на TF2OutPost.com',
+			text: 'Trade on TF2OutPost.com',
 		},
 		{
 			href: 'http://dota2lounge.com/profile?id='+steamid,
 			icon: 'http://dota2lounge.com/favicon.ico',
-			text: 'Трэйды на Dota2Lounge.com',
+			text: 'Trade on Dota2Lounge.com',
 		},
 		{
 			href: 'http://csgolounge.com/profile?id='+steamid,
 			icon: 'http://csgolounge.com/favicon.ico',
-			text: 'Трэйды на CSGOLounge.com',
+			text: 'Trade on CSGOLounge.com',
 		},
 		{hr:true},
 		{
 			href: 'http://steammoney.com/trade/user/'+steamid,
 			icon: 'http://steammoney.com/favicon.ico',
-			text: 'Инвентарь SteamMoney.com',
+			text: 'Inventory on SteamMoney.com',
 		},
 		{
 			id:   'inv_spub',
 			href: 'http://steampub.ru/user/'+steamid,
 			icon: 'http://steampub.ru/favicon.ico',
-			text: 'Профиль на SteamPub.ru',
+			text: 'Profile on SteamPub.ru',
 		},
 		{hr:true}
 
@@ -549,7 +549,7 @@ function profileNewPageInit(){
 	);
 
 
-	$('.profile_header').append('<div id="swt_info"><span id="permlink"> SteamID64: <a href="http://steamcommunity.com/profiles/'+steamid+'">'+steamid+'</a> </span> <a href="#getMoreInfo" onclick="getMoreInfo();return false">Get more info</a></div>');
+	$('.profile_header').append('<div id="swt_info"><span id="permlink"> SteamID64: <a href="http://steamcommunity.com/profiles/'+steamid+'">'+steamid+'</a> </span> <a href="#getMoreInfo" onclick="getMoreInfo();return false">More Info</a></div>');
 
 
 	SetRepBadges('#permlink');
@@ -587,7 +587,7 @@ function profileNewPageInit(){
 			);
 			window.setTimeout(function(){Modal.AdjustSizing();},1);
 		}).fail(function(){
-			$('#swtexinfo').html('Request Error / Ошибка при получении данных')
+			$('#swtexinfo').html('Request Error / Error retrieving data')
 		});
 	};
 
