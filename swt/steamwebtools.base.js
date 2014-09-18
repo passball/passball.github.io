@@ -8,7 +8,7 @@
 
 var url = document.URL;
 
-var CDN = '//github.com/passball/passball.github.io/raw/master/swt';
+var CDN = '//github.com/passball/passball.github.io/raw/master/swt/';
 
 var scripts = [
 	{
