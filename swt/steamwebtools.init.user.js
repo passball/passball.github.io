@@ -15,5 +15,5 @@
 
 var script = document.createElement('script');
 script.type = 'text/javascript';
-script.src = '//passball.github.io/swt/steamwebtools.base.js';
+script.src = '//github.com/passball/passball.github.io/raw/master/swt/steamwebtools.base.js';
 document.body.appendChild(script);
